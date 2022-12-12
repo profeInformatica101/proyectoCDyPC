@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+
+  </head>
+  <body>
+    <h1>Plantilla para P5.JS</h1>
+
+    Rojo: <input id="idrojo" type="range" min="0" max="255" onchange="cambia(this)"><br>
+    Verde: <input id="idverde" type="range" min="0" max="255" onchange="cambia(this)"><br>
+    Azul: <input id="idazul" type="range" min="0" max="255" onchange="cambia(this)">
+
+
+    
+    <script>
+      var rojo = 0;
+      var verde = 0;
+      var azul = 0;
+
+    function cambia(element){
+    
+      if(element.id == "idrojo"){
+        this.rojo = element.value;
+      }else if(element.id == "idverde"){
+        this.verde = element.value;
+      }else if(element.id == "idazul"){
+        this.azul = element.value;
+      }
+    }
+
+
+      //corre solo una vez cuando inicia el programa
+function setup(){
+    console.log("setup - frameCount:"+frameCount);
+    
+
+    createCanvas(800,800);
+   
+
+
+}
+
+//corre continuamente después de la función setup
+function draw(){
+    console.log("draw - frameCount:"+frameCount);
+    console.log("mouseX: "+ mouseX + ", mouseY"+mouseY);
+    background(this.rojo, this.verde, this.azul);
+   
+    if(mouseX<100 && mouseY<100){
+        fill(color('green'));
+        ellipse(mouseX, mouseY, 50,50);
+    
+    }else{
+        fill(color('red'));
+        ellipse(mouseX, mouseY, 50,50);
+    }
+
+}
+
+    </script>
+    
+  </body>
+
+
+</html>
